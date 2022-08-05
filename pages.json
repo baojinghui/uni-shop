@@ -1,11 +1,10 @@
 {
-  "pages": [ {
+  "pages": [{
     "path": "pages/home/home",
     "style": {
       "navigationBarTitleText": "",
       "enablePullDownRefresh": false
     }
-
   }, {
     "path": "pages/cate/cate",
     "style": {
@@ -29,7 +28,7 @@
 
   }],
   "globalStyle": {
-    "navigationBarTextStyle": "black",//导航栏文本颜色
+    "navigationBarTextStyle": "black", //导航栏文本颜色
     "navigationBarTitleText": "小鲍商城",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8",
@@ -39,8 +38,7 @@
   },
   "tabBar": {
     "selectedColor": "#C00000",
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/home/home",
         "text": "首页",
         "iconPath": "static/tab_icons/home.png",
@@ -65,5 +63,25 @@
         "selectedIconPath": "static/tab_icons/my-active.png"
       }
     ]
-  }
+  },
+  "subPackages": [ //分包
+    {
+      "root": "subpkg", //分包的根目录，直接填写根目录名
+      "pages": [ //分包的页面
+        {
+          "path": "goods_detail/goods_detail",
+          "style": {
+            "navigationBarTitleText": "",
+            "enablePullDownRefresh": false
+          }
+        }, {
+          "path": "goods_list/goods_list",
+          "style": {
+            "navigationBarTitleText": "",
+            "enablePullDownRefresh": false
+          }
+        }
+      ]
+    }
+  ]
 }
