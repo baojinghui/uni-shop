@@ -52,11 +52,12 @@
         /* 小程序特有相关 */
         "appid" : "wx0ac84abfc521fc57",
         "setting" : {
-          "checkSiteMap":false,
-            "urlCheck":false,
+            "checkSiteMap" : false,
+            "urlCheck" : false,
             "es6" : false
         },
-        "usingComponents" : true
+        "usingComponents" : true,
+        "permission" : {}
     },
     "vueVersion" : "2"
 }

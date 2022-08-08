@@ -1,5 +1,7 @@
 <template>
   <view>
+    <!-- 使用自定义的search组件 -->
+    <search bgColor="#0984d9" @myClick="goNav"></search>
     <view class="scroll-view-container">
       <!-- 左侧滑动区 -->
       <scroll-view class="left-scroll" scroll-y="true" :style="{height:wh+'px'}">
@@ -50,7 +52,7 @@
       let {
         windowHeight
       } = uni.getSystemInfoSync()
-      this.wh = windowHeight
+      this.wh = windowHeight-50
       //获取商品分类的数据
       this.getCateList()
     },
@@ -81,6 +83,12 @@
           url:`/subpkg/goods_list/goods_list?cid=${item3.cat_id}`
         })
       },
+      //跳转到搜索页面
+      goNav(){
+        uni.navigateTo({
+          url:"/subpkg/search/search"
+        })
+      },
     }
   }
 </script>
@@ -88,10 +96,8 @@
 <style lang="scss">
   .scroll-view-container {
     display: flex;
-
     .left-scroll {
       width: 120px;
-
       .left-item {
         background-color: #a8a8a8;
         line-height: 60px;

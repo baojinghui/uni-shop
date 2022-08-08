@@ -2,36 +2,32 @@
   "pages": [{
     "path": "pages/home/home",
     "style": {
-      "navigationBarTitleText": "",
-      "enablePullDownRefresh": false
+      "enablePullDownRefresh": true
     }
   }, {
     "path": "pages/cate/cate",
     "style": {
-      "navigationBarTitleText": "",
       "enablePullDownRefresh": false
     }
 
   }, {
     "path": "pages/cart/cart",
     "style": {
-      "navigationBarTitleText": "",
       "enablePullDownRefresh": false
     }
 
   }, {
     "path": "pages/my/my",
     "style": {
-      "navigationBarTitleText": "",
       "enablePullDownRefresh": false
     }
 
   }],
   "globalStyle": {
-    "navigationBarTextStyle": "black", //导航栏文本颜色
+    "navigationBarTextStyle": "white", //导航栏文本颜色
     "navigationBarTitleText": "小鲍商城",
-    "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8",
+    "navigationBarBackgroundColor": "#0984d9",//#c00000
+    "backgroundColor": "#0984d8",//下拉窗口颜色背景
     "app-plus": {
       "background": "#efeff4"
     }
@@ -81,7 +77,16 @@
             "enablePullDownRefresh": false
           }
         }
-      ]
+          ,{
+                    "path" : "search/search",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
     }
   ]
 }
