@@ -111,7 +111,7 @@
   swiper {
     margin: 10rpx;
     height: 330rpx;
-    box-shadow: 0px 8px 8px #888888;
+    box-shadow: 0px 8px 8px #888888; 
     .swiper-item,
     image {
       height: 100%;
