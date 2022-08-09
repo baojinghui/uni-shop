@@ -26,8 +26,8 @@
   "globalStyle": {
     "navigationBarTextStyle": "white", //导航栏文本颜色
     "navigationBarTitleText": "小鲍商城",
-    "navigationBarBackgroundColor": "#0984d9",//#c00000
-    "backgroundColor": "#0984d8",//下拉窗口颜色背景
+    "navigationBarBackgroundColor": "#0984d9", //#c00000
+    "backgroundColor": "#0984d8", //下拉窗口颜色背景
     "app-plus": {
       "background": "#efeff4"
     }
@@ -73,20 +73,19 @@
         }, {
           "path": "goods_list/goods_list",
           "style": {
+            "onReachBottomDistance": 150,
+            "enablePullDownRefresh": true,
+            "backgroundColor": "#2e2e2e"
+          }
+        }, {
+          "path": "search/search",
+          "style": {
             "navigationBarTitleText": "",
             "enablePullDownRefresh": false
           }
+
         }
-          ,{
-                    "path" : "search/search",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-            ]
+      ]
     }
   ]
 }
