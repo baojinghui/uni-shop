@@ -14,6 +14,7 @@
               ￥{{goods.goods_price }}
             </view>
           </view>
+          </view>
         </view>
 </template>
 
