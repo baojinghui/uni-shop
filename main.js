@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import {showMessage} from '@/utils/showMessage.js'
 import {$http} from '@escook/request-miniprogram' //http请求包
+import store from '@/store/store.js'//导入仓库
 uni.$http=$http//挂载自己封装的http请求
 uni.$showTip=showMessage //挂载自己封装的失败的提示消息
 $http.baseUrl="http://api-ugo-web.itheima.net"
@@ -23,7 +24,8 @@ Vue.config.productionTip = false
 App.mpType = 'app'
 
 const app = new Vue({
-    ...App
+    ...App,
+    store
 })
 app.$mount()
 // #endif

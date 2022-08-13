@@ -43,7 +43,29 @@
 </template>
 
 <script>
+  import {
+    mapState,
+    mapMutations,
+    mapGetters
+  } from 'vuex'
   export default {
+    computed: {
+      ...mapState('m-cart', []),
+      ...mapGetters('m_cart', ['total'])
+    },
+    watch: {
+      total: {
+        deep:true,
+        immediate: true, //初始化时handeler调用一次
+        handler(newVal) {
+          //find找会返回数组做那个的元素，找不到返回undefined
+          const findResult = this.options.find(x => x.text === "购物车")
+          if (findResult) {
+            findResult.info = newVal
+          }
+        }
+      }
+    },
     data() {
       return {
         //商品导航
@@ -53,17 +75,15 @@
         }, {
           icon: 'shop',
           text: '店铺',
-          // info: 2,
-          // infoBackgroundColor: '#007aff',
           infoColor: "red"
         }, {
           icon: 'cart',
           text: '购物车',
-          info: 2
+          info: 0
         }],
         buttonGroup: [{
             text: '加入购物车',
-            backgroundColor:'linear-gradient(90deg, #1E83FF, #0053B8)',
+            backgroundColor: 'linear-gradient(90deg, #1E83FF, #0053B8)',
             color: '#fff'
           },
           {
@@ -84,6 +104,8 @@
       this.getGoodsDetail(goods_id)
     },
     methods: {
+      //映射解构添加商品进购物车的函数
+      ...mapMutations('m_cart', ['addToCar']),
       //根据商品id请求商品详情的方法
       async getGoodsDetail(goods_id) {
         const {
@@ -104,18 +126,28 @@
           urls: this.goodsInfo.pics.map((item) => item.pics_big)
         })
       },
-      //最下方的goods-nav面板
-      onClick(e) {//左侧点击事件的处理函数
-      //点击按钮跳转到购物车页面
-        if(e.content.text==="购物车"){
+      //商品导航组件
+      onClick(e) { //左侧点击事件的处理函数
+        //点击按钮跳转到购物车页面
+        if (e.content.text === "购物车") {
           uni.switchTab({
-            url:'/pages/cart/cart'
+            url: '/pages/cart/cart'
           })
         }
       },
-      buttonClick(e) {//右侧点击事件的处理函数
-        if(e.content.text==="加入购物车"){
-            this.options[2].info++
+      buttonClick(e) { //右侧点击事件的处理函数
+        if (e.content.text === "加入购物车") {
+          //组织商品信息对象
+          const goods = {
+            goods_id: this.goodsInfo.goods_id,
+            goods_name: this.goodsInfo.goods_name,
+            goods_price: this.goodsInfo.goods_price,
+            goods_count: 1,
+            goods_small_logo: this.goodsInfo.goods_small_logo,
+            goods_state: true
+          }
+          // 调用addToCart方法将商品推入仓库
+          this.addToCar(goods)
         }
       },
       //
@@ -174,13 +206,15 @@
       margin: 10px 0;
     }
   }
-  .goods-nav{
+
+  .goods-nav {
     width: 100%;
     position: fixed;
     left: 0;
     bottom: 0;
   }
-  .goods-detail{
+
+  .goods-detail {
     padding-bottom: 50px;
   }
 </style>
