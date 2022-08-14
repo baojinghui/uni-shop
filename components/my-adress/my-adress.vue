@@ -30,7 +30,7 @@
     </view>
 
     <!-- 底部边框线 -->
-    <image src="/static/cart_border@2x.png" class="adress-border"></image>
+    <image src="/static/cart_border.png" class="adress-border"></image>
   </view>
 </template>
 
